@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Adivina el número</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#35495e" />
+  <link href="https://fonts.googleapis.com/css?family=Lato:200,400,700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+</head>
+<body>
+  <header>
+    <h1 class="titulo">Adivina el número</h1>
+    <div class="contenedor-menu" id="menu">
+      <span class="menu"></span>
+    </div>
+  </header>
+  <main id="contenedor" class="contenedor">
+    <p class="descripcion">Tienes <span>10</span> oportunidades para adivinar el número escondido SUERTE!!</p>
+    <p class="descripcion"><span>PISTA:</span> es un numero entre <span>0</span> y <span>99</span>, despues oprime <span>Enter</span>.</p>
+    <section class="numeros">
+      <section class="numero_aleatorio">
+        <p class="descripcion">Adiviname</p>
+        <!--Aqui va aparecer el numero ya que sea adivinado-->
+        <p  class="aleatorio" id="aleatorio">?</p>
+      </section>
+      <section class="numero_usuario">
+        <!--Aqui aparece un signo '+' o '-' segun el numero que ingreso el usuario-->
+        <div class="signos">
+          <p id="signo_+" class="signo">+</p>
+          <p id="signo_-" class="signo">-</p>
+        </div>
+        <!--Esto es un pequeño modal indicando una instrución al jugador, que no debe escribir más de 2 números-->
+        <span id="popup" class="popup oculto">Recuerda solo números del <span>0</span> al <span>99</span></span>
+        <!--Aqui ingresa un numero el usuario-->
+        <input name="usuario" id="usuario" type="number" min="0" max="99" autofocus />
+        <div id="play" class="play"><p>Jugar</p></div>
+      </section>
+    </section>
+    <!--Aqui se va a tachar cada recuadro segun el numero de intento que valla-->
+    <section class="intentos">
+      <p>Intentos</p>
+      <div class="fila">
+        <p class="intento">01</p>
+        <p class="intento">02</p>
+        <p class="intento">03</p>
+        <p class="intento">04</p>
+        <p class="intento">05</p>
+      </div>
+      <div class="fila">
+        <p class="intento">06</p>
+        <p class="intento">07</p>
+        <p class="intento">08</p>
+        <p class="intento">09</p>
+        <p class="intento">10</p>
+      </div>
+    </section>
+  </main>
+  <div class="modal modal-oculto" id="modal-info">
+    <div class="info">
+      <div class="contenedor-cerrar" id="cerrar">
+        <span class="cerrar"></span>
+      </div>
+      <h3>Configuración</h3>
+      <p>Juegos Jugados</p>
+      <div>
+        <span class="info-texto" id="jugados">0</span>
+        <span class="info-texto"><span id="jugadosPorcentaje">0</span> %</span>
+      </div>
+      <p>Juegos Ganados</p>
+      <div>
+        <span class="info-texto" id="ganados">0</span>
+        <span class="info-texto"><span id="ganadosPorcentaje">0</span> %</span>
+      </div>
+      <p>Juegos Perdidos</p>
+      <div>
+        <span class="info-texto" id="perdidos">0</span>
+        <span class="info-texto"><span id="perdidosPorcentaje">0</span> %</span>
+      </div>
+      <button id="borrar">Borrar datos</button>
+    </div>
+  </div>
+  <div class="modal modal-oculto" id="modal">
+    <p class="ganaste ganaste-oculto" id="ganaste">Ganaste!!!</p>
+    <p class="perdiste perdiste-oculto" id="perdiste">Ups, Perdiste</p>
+    <!-- <div class="animacion animacion-1">
+      <div class="punto"></div>
+    </div>
+    <div class="animacion animacion-2">
+      <div class="punto"></div>
+    </div>
+    <div class="animacion animacion-3">
+      <div class="punto"></div>
+    </div>
+    <div class="animacion animacion-4">
+      <div class="punto"></div>
+    </div>
+    <div class="animacion animacion-5">
+      <div class="punto"></div>
+    </div>
+    <div class="animacion animacion-6">
+      <div class="punto"></div>
+    </div> -->
+    <button class="repetir" id="repetir">Jugar de nuevo</button></div>
+  </div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

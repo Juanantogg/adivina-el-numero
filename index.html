@@ -7,14 +7,21 @@
   <meta name="theme-color" content="#35495e" />
   <link href="https://fonts.googleapis.com/css?family=Lato:200,400,700" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+  <style>
+
+
+</style>
 </head>
 <body>
+  <!-- <div class="launcher"></div> -->
+
   <header>
     <h1 class="titulo">Adivina el número</h1>
     <div class="contenedor-menu" id="menu">
       <span class="menu"></span>
     </div>
   </header>
+
   <main id="contenedor" class="contenedor">
     <p class="descripcion">Tienes <span>10</span> oportunidades para adivinar el número escondido SUERTE!!</p>
     <p class="descripcion"><span>PISTA:</span> es un numero entre <span>0</span> y <span>99</span>, despues oprime <span>Enter</span>.</p>
@@ -56,6 +63,7 @@
       </div>
     </section>
   </main>
+
   <div class="modal modal-oculto" id="modal-info">
     <div class="info">
       <div class="contenedor-cerrar" id="cerrar">
@@ -80,29 +88,14 @@
       <button id="borrar">Borrar datos</button>
     </div>
   </div>
+
   <div class="modal modal-oculto" id="modal">
     <p class="ganaste ganaste-oculto" id="ganaste">Ganaste!!!</p>
     <p class="perdiste perdiste-oculto" id="perdiste">Ups, Perdiste</p>
-    <!-- <div class="animacion animacion-1">
-      <div class="punto"></div>
-    </div>
-    <div class="animacion animacion-2">
-      <div class="punto"></div>
-    </div>
-    <div class="animacion animacion-3">
-      <div class="punto"></div>
-    </div>
-    <div class="animacion animacion-4">
-      <div class="punto"></div>
-    </div>
-    <div class="animacion animacion-5">
-      <div class="punto"></div>
-    </div>
-    <div class="animacion animacion-6">
-      <div class="punto"></div>
-    </div> -->
-    <button class="repetir" id="repetir">Jugar de nuevo</button></div>
+
+    <button class="repetir" id="repetir">Jugar de nuevo</button>
   </div>
+
   <script src="assets/js/main.js"></script>
 </body>
 </html>

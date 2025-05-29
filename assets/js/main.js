@@ -22,8 +22,52 @@ const borrar = document.getElementById('borrar')
 
 const intentos = document.querySelectorAll('.intento')
 
+let fireworksInterval = null
 let numeroAleatorio = Math.floor(Math.random() * 100)
 let contadorIntentos = 0
+
+const createFirework = (x, y, color) => {
+  const particles = 100;
+  const container = document.body;
+  // const container = document.getElementById('modal1');
+
+  for (let i = 0; i < particles; i++) {
+    const angle = Math.random() * Math.PI * 2;
+    const distance = 100 + Math.random() * 100;
+    const tx = Math.cos(angle) * distance;
+    const ty = Math.sin(angle) * distance;
+    const delay = Math.random() * 0.5;
+    const size = 2 + Math.random() * 3;
+
+    const particle = document.createElement("div");
+    particle.className = "firework";
+    particle.style.left = `${x}px`;
+    particle.style.top = `${y}px`;
+    particle.style.backgroundColor = color;
+    particle.style.setProperty("--tx", `${tx}px`);
+    particle.style.setProperty("--ty", `${ty}px`);
+    particle.style.animationDelay = `${delay}s`;
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+
+    container.appendChild(particle);
+
+    // Eliminar después de la animación
+    setTimeout(() => {
+      particle.remove();
+    }, 1500);
+  }
+};
+
+// Lanzar fuegos artificiales aleatorios
+const launchRandomFirework = () => {
+  const x = Math.random() * window.innerWidth;
+  const y = (Math.random() * window.innerHeight) / 2;
+  const hue = Math.random() * 360;
+  const color = `hsl(${hue}, 100%, 50%)`;
+
+  createFirework(x, y, color);
+};
 
 const mostrarPopup = () => {
   popup.classList.remove('visible')
@@ -112,6 +156,9 @@ const leerNumero = (e) => {
         modal.classList.remove('modal-oculto')
         ganaste.classList.remove('ganaste-oculto')
         guardarGanados()
+
+        fireworksInterval = setInterval(launchRandomFirework, 300);
+
       } else {
         numeroUsuario.value = ''
         if (numeroAleatorio > valor) {
@@ -140,6 +187,7 @@ const repetirJuego = () => {
   intentos.forEach(intento => {
     intento.classList.remove('intento-fallido')
   })
+  clearInterval(fireworksInterval)
 }
 
 const mostarInfo = () => {
